@@ -95,3 +95,18 @@ def loan_repayment_scheduler():
             principal_component = outstanding_bal
             actual_emi = round(interest_component + principal_component, 2)
 
+        outstanding_bal = round(outstanding_bal - principal_component, 2)
+        if outstanding_bal < 0:
+            outstanding_bal = 0.0
+
+        payment_schedule.append({
+            "month": month_idx,
+            "emi": actual_emi,
+            "interest": interest_component,
+            "principal": principal_component,
+            "balance": outstanding_bal
+        })
+
+        if outstanding_bal == 0:
+            break
+
