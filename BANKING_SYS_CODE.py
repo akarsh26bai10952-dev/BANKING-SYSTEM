@@ -30,3 +30,14 @@ def fixed_deposit_estimator():
     print(f"Annual interest rate: {annual_rate:.2f}%")
     print("Compounding frequency: quarterly")
     
+    print_separator()
+    print(f"{'Year':<8}{'Simple maturity':>20}{'Compound maturity':>22}{'Difference':>20}")
+    print_separator()
+
+    final_simple_val = 0.0
+    final_compound_val = 0.0
+
+    for yr in range(1, duration_yrs + 1):
+        simple_yield = principal + (principal * annual_rate * yr / 100)
+        compound_yield = principal * (1 + annual_rate / (100 * compound_freq)) ** (compound_freq * yr)
+        delta = compound_yield - simple_yield
