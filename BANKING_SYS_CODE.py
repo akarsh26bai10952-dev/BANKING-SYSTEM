@@ -134,5 +134,16 @@ def loan_repayment_scheduler():
 
 
 def credit_eligibility_assessor():
+        print_separator()
+    print("CREDIT ELIGIBILITY ASSESSOR")
+    monthly_income = float(input("Enter monthly income: "))
+    current_debts = float(input("Enter combined existing monthly debt: "))
+    new_emi = float(input("Enter requested loan EMI: "))
+
+    if monthly_income <= 0 or current_debts < 0 or new_emi <= 0:
+        print("Income and requested EMI must be positive; debt cannot be negative.")
+        print("Returning to the main menu.")
+        return
+
     
 
