@@ -24,6 +24,28 @@ Enter a deposit amount and a term in whole years. The app chooses an illustrativ
 ### 2. Loan Repayment Scheduler
 
 Enter the loan amount, annual interest rate, and loan term in months. The app calculates the monthly EMI and prints a month-by-month breakdown of interest paid, principal paid, and remaining balance.
-
 It also handles a 0% interest loan without using the normal EMI formula.
 
+### 3. Credit Eligibility Assessor
+Enter monthly income, current monthly debt, and the requested loan EMI. The app calculates the debt-to-income (DTI) percentage and returns a simple result:
+
+| DTI | Result |
+|---:|---|
+| Up to 30% | Approved - Low risk |
+| 30.01% to 40% | Approved - Moderate risk |
+| 40.01% to 50% | Approved with caution - High risk |
+| Above 50% | Not approved - Very high risk |
+
+## Running the program
+
+1. Make sure Python 3 is installed.
+2. Open a terminal in this folder.
+3. Run:
+
+```bash
+python financial_credit_assessment.py
+```
+
+Choose a menu number, enter the requested values, and choose `4` when you are finished.
+
+## A quick example
