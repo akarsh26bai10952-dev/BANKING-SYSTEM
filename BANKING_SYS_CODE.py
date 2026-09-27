@@ -15,3 +15,18 @@ def fixed_deposit_estimator():
     print("FIXED DEPOSIT ESTIMATOR")
     print("Illustrative annual-rate slabs: below 100000 = 5.50%, "
           "100000-499999.99 = 6.25%, 500000 and above = 7.00%")
+
+    principal = float(input("Enter deposit principal: "))
+    duration_yrs = int(input("Enter deposit term in whole years: "))
+
+    if principal <= 0 or duration_yrs <= 0:
+        print("Principal and term must be positive. Returning to the main menu.")
+        return 0.0, 0.0
+
+    annual_rate, slab_name = determine_deposit_slab(principal)
+    compound_freq = 4
+    
+    print(f"Selected rate band: {slab_name}")
+    print(f"Annual interest rate: {annual_rate:.2f}%")
+    print("Compounding frequency: quarterly")
+    
