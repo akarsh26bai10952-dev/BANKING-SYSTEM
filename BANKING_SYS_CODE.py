@@ -109,4 +109,30 @@ def loan_repayment_scheduler():
 
         if outstanding_bal == 0:
             break
+            
+    print_separator()
+    print(f"{'Month':<7}{'EMI':>13}{'Interest':>15}{'Principal paid':>16}{'Balance':>18}")
+    print_separator()
+    
+    for item in payment_schedule:
+        print(f"{item['month']:<7}{item['emi']:>13.2f}{item['interest']:>15.2f}"
+              f"{item['principal']:>16.2f}{item['balance']:>18.2f}")
+
+    total_outflow = sum(item["emi"] for item in payment_schedule)
+    total_interest_paid = sum(item["interest"] for item in payment_schedule)
+
+    print_separator()
+        print("Loan summary")
+    print(f"Loan principal:     {loan_amount:.2f}")
+    print(f"Annual rate:        {interest_rate:.2f}%")
+    print(f"Tenure:             {num_months} month(s)")
+    print(f"Monthly EMI:        {emi:.2f}")
+    print(f"Total payment:      {total_outflow:.2f}")
+    print(f"Total interest:     {total_interest_paid:.2f}")
+
+    return emi
+
+
+def credit_eligibility_assessor():
+    
 
