@@ -82,3 +82,16 @@ def loan_repayment_scheduler():
         print("Returning to the main menu.")
         return 0.0
         
+    emi, m_rate = compute_monthly_emi(loan_amount, interest_rate, num_months)
+    outstanding_bal = loan_amount
+    payment_schedule = []
+
+    for month_idx in range(1, num_months + 1):
+        interest_component = round(outstanding_bal * m_rate, 2)
+        principal_component = round(emi - interest_component, 2)
+        actual_emi = emi
+
+        if month_idx == num_months or principal_component >= outstanding_bal:
+            principal_component = outstanding_bal
+            actual_emi = round(interest_component + principal_component, 2)
+
