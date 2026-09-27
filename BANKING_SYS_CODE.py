@@ -41,3 +41,15 @@ def fixed_deposit_estimator():
         simple_yield = principal + (principal * annual_rate * yr / 100)
         compound_yield = principal * (1 + annual_rate / (100 * compound_freq)) ** (compound_freq * yr)
         delta = compound_yield - simple_yield
+
+        print(f"{yr:<8}{simple_yield:>20.2f}{compound_yield:>22.2f}{delta:>20.2f}")
+        final_simple_val = simple_yield
+        final_compound_val = compound_yield
+
+    simple_interest = final_simple_val - principal
+    compound_interest = final_compound_val - principal
+    
+    print_separator()
+    print("Final term summary")
+    print(f"Simple-interest maturity:   {final_simple_val:.2f}")
+    print(f"Simple interest earned:     {simple_interest:.2f}")
