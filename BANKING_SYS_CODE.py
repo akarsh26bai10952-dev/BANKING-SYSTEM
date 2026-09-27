@@ -53,3 +53,17 @@ def fixed_deposit_estimator():
     print("Final term summary")
     print(f"Simple-interest maturity:   {final_simple_val:.2f}")
     print(f"Simple interest earned:     {simple_interest:.2f}")
+    print(f"Compound-interest maturity: {final_compound_val:.2f}")
+    print(f"Compound interest earned:   {compound_interest:.2f}")
+    print(f"Maturity difference:        {final_compound_val - final_simple_val:.2f}")
+
+    return final_simple_val, final_compound_val
+
+
+def compute_monthly_emi(principal, annual_rate, tenure_months):
+    monthly_rate = annual_rate / (12 * 100)
+    if monthly_rate == 0:
+        emi_val = principal / tenure_months
+    else:
+        emi_val = (principal * monthly_rate * (1 + monthly_rate) ** tenure_months) / ((1 + monthly_rate) ** tenure_months - 1)
+    return round(emi_val, 2), monthly_rate
