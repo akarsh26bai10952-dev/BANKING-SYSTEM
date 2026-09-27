@@ -49,3 +49,14 @@ python financial_credit_assessment.py
 Choose a menu number, enter the requested values, and choose `4` when you are finished.
 
 ## A quick example
+For a deposit of `100000` over `2` years, the program selects the 6.25% rate band. It then shows the simple and compound maturity amount separately for year 1 and year 2.
+
+For a loan of `12000` at `0%` for `12` months, the EMI is `1000.00`, total interest is `0.00`, and the remaining balance reaches `0.00` in the final month.
+
+## Behind the scenes
+
+The program keeps things intentionally direct: functions handle each menu option, loops create yearly or monthly tables, a list stores repayment rows, a tuple returns deposit totals, and a dictionary holds the credit-assessment result.
+
+## Important note
+
+This project is for learning and estimation only. Its interest-rate slabs and approval decisions are examples, not real bank rates or lending advice.
