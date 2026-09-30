@@ -156,5 +156,14 @@ def credit_eligibility_assessor():
     else:
         status, risk_level = "Not approved", "Very high risk"
 
+    assessment_summary = {
+        "monthly_income": monthly_income,
+        "existing_debt": current_debts,
+        "requested_emi": new_emi,
+        "total_obligations": total_commitments,
+        "dti": dti_ratio,
+        "approval": status,
+        "risk": risk_level
+    }
     
 
