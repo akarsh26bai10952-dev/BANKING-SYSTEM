@@ -166,4 +166,16 @@ def credit_eligibility_assessor():
         "risk": risk_level
     }
     
+    print_separator()
+    print(f"Monthly income:            {assessment_summary['monthly_income']:.2f}")
+    print(f"Existing monthly debt:     {assessment_summary['existing_debt']:.2f}")
+    print(f"Requested loan EMI:        {assessment_summary['requested_emi']:.2f}")
+    print(f"Total monthly obligations: {assessment_summary['total_obligations']:.2f}")
+    print(f"Debt-to-income ratio:      {assessment_summary['dti']:.2f}%")
+    print(f"Decision:                  {assessment_summary['approval']}")
+    print(f"Risk classification:       {assessment_summary['risk']}")
+    print_separator()
+    print("This is an educational estimate, not an actual banking decision.")
+
+
 
