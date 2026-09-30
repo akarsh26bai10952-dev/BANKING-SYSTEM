@@ -121,7 +121,7 @@ def loan_repayment_scheduler():
     total_interest_paid = sum(item["interest"] for item in payment_schedule)
 
     print_separator()
-        print("Loan summary")
+    print("Loan summary")
     print(f"Loan principal:     {loan_amount:.2f}")
     print(f"Annual rate:        {interest_rate:.2f}%")
     print(f"Tenure:             {num_months} month(s)")
@@ -133,7 +133,7 @@ def loan_repayment_scheduler():
 
 
 def credit_eligibility_assessor():
-        print_separator()
+    print_separator()
     print("CREDIT ELIGIBILITY ASSESSOR")
     monthly_income = float(input("Enter monthly income: "))
     current_debts = float(input("Enter combined existing monthly debt: "))
