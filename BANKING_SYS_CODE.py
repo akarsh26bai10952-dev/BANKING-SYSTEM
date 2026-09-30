@@ -64,7 +64,6 @@ def compute_monthly_emi(principal, annual_rate, tenure_months):
     monthly_rate = annual_rate / (12 * 100)
     if monthly_rate == 0:
         emi_val = principal / tenure_months
-
     else:
         emi_val = (principal * monthly_rate * (1 + monthly_rate) ** tenure_months) / ((1 + monthly_rate) ** tenure_months - 1)
     return round(emi_val, 2), monthly_rate
@@ -144,6 +143,18 @@ def credit_eligibility_assessor():
         print("Income and requested EMI must be positive; debt cannot be negative.")
         print("Returning to the main menu.")
         return
+
+    total_commitments = current_debts + new_emi
+    dti_ratio = total_commitments * 100 / monthly_income
+
+    if dti_ratio <= 30:
+        status, risk_level = "Approved", "Low risk"
+    elif dti_ratio <= 40:
+        status, risk_level = "Approved", "Moderate risk"
+    elif dti_ratio <= 50:
+        status, risk_level = "Approved with caution", "High risk"
+    else:
+        status, risk_level = "Not approved", "Very high risk"
 
     
 
